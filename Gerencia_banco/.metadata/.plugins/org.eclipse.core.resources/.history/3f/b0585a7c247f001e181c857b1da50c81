@@ -1,0 +1,77 @@
+package banco;
+import java.util.Scanner;
+
+public class Conta extends Cliente {
+	
+	Conta(java.lang.String nome, java.lang.String sobrenome, java.lang.String cpf) {
+		super(nome, sobrenome, cpf);
+		}
+		public static void main(String[] args) {
+			
+			Scanner scanner = new Scanner (System.in); //inicializando o scanner 
+		    System.out.println("Olá, Bem-vindo ao nosso Banco!");
+	        System.out.print("Para começar por favor Digite seu nome: ");
+	        String nome = scanner.nextLine();
+	        System.out.print("Certo "+ nome + ". Digite também o seu sobrenome: ");
+	        String sobrenome = scanner.nextLine();
+	        System.out.print("Legal " + nome + " " + sobrenome + 
+	                ". É um prazer receber você aqui! :)");
+	        System.out.print("\nAgora por favor Digite seu CPF: ");
+	        String cpf = scanner.nextLine();
+	            
+	        Transacoes conta = new Transacoes();
+
+	        while (true) {
+	            System.out.println("\n certo, para continuar escolha uma opção:");
+	            System.out.println("1. Consultar Saldo");
+	            System.out.println("2. Depósito");
+	            System.out.println("3. Saque");
+	            System.out.println("4. Sair");
+
+	            int opcao = scanner.nextInt(); // ler a opção digitada pelo cliente. 
+	            switch (opcao) {
+	                case 1:
+	                    conta.getSaldo();
+	                    break;
+	                case 2:
+	                   try {
+	                        System.out.print("Digite o valor do depósito: ");
+	                        double valorDeposito = scanner.nextDouble();
+	                        conta.fazerDeposito(valorDeposito);
+	                    } catch (java.util.InputMismatchException e) {
+	                        System.out.println("Valor de depósito está inválido. "
+	                                + "Certifique-se de usar o formato correto (por exemplo, 585,20).");
+	                        scanner.nextLine(); // Limpar o buffer do scanner
+	                    }
+	                    break;
+	                case 3:
+	                    System.out.print("Digite o valor do saque: ");
+	                    double valorSaque = scanner.nextDouble();
+	                    conta.fazerSaque(valorSaque);
+	                    break;
+	                case 4:
+	                    System.out.println("Obrigada pela preferencia, será sempre um prazer atender você " + 
+	                            nome 
+	                            + ". Até breve! :) ");
+	                    scanner.close();
+	                    System.exit(0);
+	                default:
+	                    System.out.println("Opção digitada está inválida. Tente novamente.");
+	            }
+	        }
+
+		
+		  
+	   
+		
+	}
+
+	
+	
+	
+	
+
+
+	
+
+}

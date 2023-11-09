@@ -1,0 +1,36 @@
+package banco;
+
+public class Cliente {
+	private String nome;
+	private String sobrenome;
+	private String cpf;
+	protected double saldo;
+	
+		Cliente(String nome, String sobrenome, String cpf) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.setSaldo(0.0);
+	}
+
+		public double getSaldo() {
+			return saldo;
+		}
+
+		public void setSaldo(double saldo) {
+			this.saldo = saldo;
+		}
+
+		public void fazerSaque(double valorSaque) {
+			 //se o saldo for menor ao valor digitado então:
+	        if (valorSaque <= saldo) {
+	            saldo -= valorSaque; // Retirar valor digitado do saldo. 
+	            System.out.println("Saque de R$" + valorSaque + " efetuado com sucesso!");
+	        } else {
+	            System.out.println("Poxa, verifiquei aqui que o seu saldo é "
+	                    + "insuficiente para realizar o saque.");
+	        }
+
+			
+		}
+}

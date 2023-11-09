@@ -1,0 +1,30 @@
+package banco;
+
+public class Transacoes extends Conta {
+	
+
+    Transacoes(String nome, String sobrenome, String cpf) { //construtor
+		super(nome, sobrenome, cpf);
+	}
+	public void fazerDeposito(double valor) {
+        setSaldo(getSaldo() + valor); // Acresentar o valor digitado pelo cliente ao saldo. 
+        System.out.println("Depósito de R$" + valor + " efetuado com sucesso!");
+    }
+    public void consultarSaldo() {
+        System.out.println("O saldo atual da sua conta é: " + saldo);
+        
+    }
+
+    public void fazerSaque(double valor) {
+        //se o saldo for menor ao valor digitado então:
+        if (valor <= getSaldo()) {
+            setSaldo(getSaldo() - valor); // Retirar valor digitado do saldo. 
+            System.out.println("Saque de R$" + valor + " efetuado com sucesso!");
+        } else {
+            System.out.println("Poxa, verifiquei aqui que o seu saldo é "
+                    + "insuficiente para realizar o saque.");
+        }
+    }
+
+	
+}

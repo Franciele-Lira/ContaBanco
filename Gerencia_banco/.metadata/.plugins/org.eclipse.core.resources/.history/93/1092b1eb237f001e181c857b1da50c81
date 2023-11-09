@@ -1,0 +1,23 @@
+package banco;
+
+public class Cliente<Public> {
+	private String nome;
+	private String sobrenome;
+	private String cpf;
+	protected double saldo;
+	
+		Cliente(String nome, String sobrenome, String cpf) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.setSaldo(0.0);
+	}
+
+		public double getSaldo() {
+			return saldo;
+		}
+
+		public void setSaldo(double saldo) {
+			this.saldo = saldo;
+		}
+}
